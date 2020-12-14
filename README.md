@@ -15,9 +15,9 @@ Starting with the basic template, write your own console-based game in Java. Thi
 ### ✅ Completion Criteria
 
 Before you begin, prepare your project:
-- [ ] set up a development environment
-- [ ] set up a GitHub account and join our GitHub Classroom
-- [ ] fork this project in GitHub Classroom
+- [x] set up a development environment
+- [x] set up a GitHub account and join our GitHub Classroom
+- [x] fork this project in GitHub Classroom
 
 As you work on your project, be sure to:
 - [ ] Regularly commit your code to GitHub at the end of every coding session
