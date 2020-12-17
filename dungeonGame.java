@@ -31,5 +31,7 @@ public class dungeonGame {
       //picks a random enemy from the array written earlier using the string method .length
       String enemy = enemies[rand.nextInt(enemies.length)];
 
+    }
 
-
+  }
+}
