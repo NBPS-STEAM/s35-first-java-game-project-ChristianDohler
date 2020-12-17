@@ -14,7 +14,7 @@ public class dungeonGame {
     int EnemyRegeneration = 20;
 
     // player
-    int healt = 100;
+    int health = 100;
     int attackDamage = 45;
     int healthPotions = 3;
     int maxRegeneration = 25;
