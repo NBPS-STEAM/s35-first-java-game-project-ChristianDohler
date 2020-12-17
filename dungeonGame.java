@@ -8,26 +8,28 @@ public class dungeonGame {
 
     // enemy
     String[] enemies = { "Ghoul", "Mind Flayer", "Goblin" };
-    int EnemyMaxHealth = 80;
-    int EnemyMaxDamageDealt = 20;
-    int EnemyHealthPotions = 1;
-    int EnemyRegeneration = 20;
+    int enemyMaxHealth = 100;
+    int enemyMaxDamageDealt = 20;
+    int enemyRegeneration = 20;
 
     // player
-    int health = 100;
+    int maxHealth = 100;
     int attackDamage = 45;
-    int healthPotions = 3;
-    int maxRegeneration = 25;
+    int maxRegeneration = 100;
 
+    //condition for while loop so game keeps iterating until we tell it to stop
     boolean working = true;
 
-    System.out.println("\t DUNGEON ADVENTURE   ");
+    System.out.println("\n \n \n \t DUNGEON ADVENTURE   ");
+
+    System.out.println("|_________________________|");
 
     GAME: while (working) {
 
-      System.out.println("Hello Mortal, welcome to the dungeon!");
+      //gives enemy random health between 1 to 100
+      int enemyHealth = rand.nextInt(enemyMaxHealth);
+      //picks a random enemy from the array written earlier using the string method .length
+      String enemy = enemies[rand.nextInt(enemies.length)];
 
-    }
 
-  }
-}
+
