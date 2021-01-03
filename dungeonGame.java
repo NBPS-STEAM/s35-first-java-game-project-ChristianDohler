@@ -72,7 +72,7 @@ public class dungeonGame {
 
         System.out.println("\n");
 
-        if(userInput.equals("1"))
+        if(userInput.equals("1") && maxHealth >= 1)
         {
           int damageDealt = rand.nextInt(swordDamage);
           int damageTaken = rand.nextInt(enemyMaxDamageDealt);
@@ -88,13 +88,32 @@ public class dungeonGame {
 
 
         }
-        else if(userInput.equals("2") && maxHealth <= 70)
+        else if(userInput.equals("2") )
         {
+          if(maxHealth >=1 && maxHealth <=70)
+          {
+           int enemyHealthBack = rand.nextInt(enemyRegeneration);
+           int magicAttack = rand.nextInt(magicDamage);
+           int playerRegeneration = rand.nextInt(maxRegeneration);
+
+           enemyHealth += enemyHealthBack;
+           enemyHealth -= magicAttack;
+           maxHealth += playerRegeneration;
+
+           System.out.println("You have used your magic attack on the " + enemy + " and have induced " + magicAttack + "damage upon it\n");
+
+           System.out.println("In doing this you have gained " + playerRegeneration + " health back....However some of this magic bounced of the " + enemy + " and they have received " + enemyHealthBack + " health back as well\n");
+
+          }
+          else
+          {
+          System.out.println("You have too much health to use a magic attack. Once you get below 70 then you will be able to use it\n \n \n ");
+          }
+
+         
           
-          int enemyHealthBack = rand.nextInt(enemyRegeneration);
-          int magicAttack = rand.nextInt(magicDamage);
-          int playerRegeneration = rand.nextInt(maxRegeneration);
         }
+        else if(userInput.equals())
 
       
 
