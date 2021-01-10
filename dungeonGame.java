@@ -1,23 +1,26 @@
 import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner6;
+
 import java.util.Random;
 
 public class dungeonGame {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException{
     Scanner input = new Scanner(System.in);
     Random rand = new Random();
 
     // enemy
-    String[] enemies = { "Ghoul", "Mind Flayer", "Goblin" };
+    String[] enemies = { "Ghoul", "Mind Flayer", "Goblin", "Ghost"};
     int enemyMaxHealth = 100;
-    int enemyMaxDamageDealt = 30;
+    int enemyMaxDamageDealt = 40;
     int enemyRegeneration = 15;
 
     // player
     int maxHealth = 100;
-    int swordDamage = 45;
+    int swordDamage = 40;
     int magicDamage = 30;
-    int maxRegeneration = 30;
-    int chanceAttack = 100;
+    int maxRegeneration = 40;
+    
 
     //condition for while loop so game keeps iterating until we tell it to stop
     boolean working = true;
@@ -26,10 +29,11 @@ public class dungeonGame {
     // used a for loop as a countdown
     for(int i = 3; i > 0; i--)
       {
-        System.out.println(i);  
+        System.out.println(i);
+        Thread.sleep(2000);  
       }
 
-
+    //Title and Instructions
     System.out.println("\n \n \t DUNGEON ADVENTURE ");
 
     System.out.println("|_________________________|\n");
@@ -40,7 +44,8 @@ public class dungeonGame {
 
     System.out.println("*Your magic attacks cannot hit for as much as your sword attacks damage for less but you are able to regain a little bit of health after each hit.Your health must be less than 70 in order to use your magic attack.Your magic attacks however also allow the enemy to regain a little bit of health back as well*\n");
 
-    System.out.println("*Chance attacks are 50/50 attacks. You have to guess a number between 1 and 3 and if you get it right you fully eliminate the enemy. However if you guess wrong you automatically lose and end the game*\n \n \n \n \n \n \n");
+
+    System.out.println("_____________________________________");
 
 
     
@@ -57,7 +62,7 @@ public class dungeonGame {
       System.out.println("a " + enemy + " has appeared!\n");
 
       //create loop that starts game and asks for user input
-      while(enemyHealth > 1)
+      while(enemyHealth > 0)
       {
         System.out.println("Your Health: " + maxHealth);
         System.out.println(enemy + "'s Health: " + enemyHealth + "\n");
@@ -65,29 +70,32 @@ public class dungeonGame {
         
         System.out.println("1. Sword Attack");
         System.out.println("2. Magic Attack");
-        System.out.println("3. Chance Attack");
-        System.out.println("3. Run\n");
-
+        System.out.println("3. Run");
+        
+        //Asks for user to input a number needed to perform an action
         String userInput = input.nextLine();
 
         System.out.println("\n");
-
-        if(userInput.equals("1") && maxHealth >= 1)
+        System.out.println("_____________________________________\n");
+         
+        //If statement to show what would happen in a sword attack
+        if(userInput.equals("1"))
         {
+          //Creates a random amount of damage taken and a random amount of damage given so it keeps game interesting
           int damageDealt = rand.nextInt(swordDamage);
           int damageTaken = rand.nextInt(enemyMaxDamageDealt);
           
           
-          
+          //Takes damage off both players and enemies health
           enemyHealth -= damageDealt;
           maxHealth -= damageTaken;
 
 
           System.out.println("Your sword slash strikes the " + enemy + " for " + damageDealt + " damage");
           System.out.println("HOWEVER, the " + enemy + " was able to get a hit of you and hit you for " + damageTaken + " health\n");
-
-
+          
         }
+        //else if statement to show what happens if user were to do a  magic attack
         else if(userInput.equals("2") )
         {
           if(maxHealth >=1 && maxHealth <=70)
@@ -100,11 +108,12 @@ public class dungeonGame {
            enemyHealth -= magicAttack;
            maxHealth += playerRegeneration;
 
-           System.out.println("You have used your magic attack on the " + enemy + " and have induced " + magicAttack + "damage upon it\n");
+           System.out.println("You have used your magic attack on the " + enemy + " and have induced " + magicAttack + " damage upon it\n");
 
            System.out.println("In doing this you have gained " + playerRegeneration + " health back....However some of this magic bounced of the " + enemy + " and they have received " + enemyHealthBack + " health back as well\n");
 
           }
+          //if players health is above 70 they are not allowed to use magic attack
           else
           {
           System.out.println("You have too much health to use a magic attack. Once you get below 70 then you will be able to use it\n \n \n ");
@@ -113,17 +122,61 @@ public class dungeonGame {
          
           
         }
-        else if(userInput.equals())
+        //else if statement to show what happens if user decides to run
+        else if(userInput.equals("3"))
+        {
+         System.out.print("You have successfully run away from the " + enemy + "\n \n");
+         System.out.println("_____________________________________\n");
+         //reitterates back to GAME loop so the game can continue and a new enemy can appear for player to fight
+         continue GAME;
+        }
+      }
+      
+      
+      
+
+
+
 
       
+      
+    
+       
+      
+       System.out.println("_____________________________________");
+       System.out.println("You have defeated the " + enemy );
+       System.out.println("You have " + maxHealth + " HP left");
+       System.out.println("_____________________________________\n");
+       System.out.println("How do you wish to proceed?");
+       System.out.println("1. Continue Fighting");
+       System.out.println("2. Leave The Dungeon");
+
+       String decisions = input.nextLine();
+       System.out.println("\n");
+
+       if(decisions.equals("1"))
+       {
+        System.out.println("Brave choice. You continue on in your adventure\n \n \n ");
+       }
+       else if(decisions.equals("2"))
+       {
+       System.out.println("having conquered the enemy you successfully leave the dungeon");
+       break;
+       }
+
 
       }
+      if(maxHealth < 1)
+      {
+        break;
+      }
+    } 
+    
+  
 
-      
-      
-
-
-    }
+  
+    
+    System.out.println("THANK YOU FOR PLAYING DUNGEON ADVENTURE");
 
   }
 }

@@ -20,18 +20,18 @@ Before you begin, prepare your project:
 - [x] fork this project in GitHub Classroom
 
 As you work on your project, be sure to:
-- [ ] Regularly commit your code to GitHub at the end of every coding session
-- [ ] Add comments to your code so that its purpose and functionality are clear
+- [x] Regularly commit your code to GitHub at the end of every coding session
+- [x] Add comments to your code so that its purpose and functionality are clear
 
 Your game must contain all of the following types of statements:
-- [ ] if statements
-- [ ] if-else statements
-- [ ] else if statements
-- [ ] compound boolean expressions
-- [ ] comparing objects
-- [ ] while loop
-- [ ] for loop
-- [ ] nested iteration
+- [x] if statements
+- [x] if-else statements
+- [x] else if statements
+- [x] compound boolean expressions
+- [x] comparing objects
+- [x] while loop
+- [x] for loop
+- [x] nested iteration
 
 Also, you need to prepare a short video (1-2 minutes) showing the following:
 - [ ] your development environment
