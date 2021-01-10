@@ -95,6 +95,13 @@ public class dungeonGame {
           System.out.println("HOWEVER, the " + enemy + " was able to get a hit of you and hit you for " + damageTaken + " health\n");
           
         }
+         if(maxHealth < 1)
+          {
+          System.out.println("You sustained too much damage, you limp out the dungeon in retreat\n");
+          break GAME;
+          }
+         
+
         //else if statement to show what happens if user were to do a  magic attack
         else if(userInput.equals("2") )
         {
@@ -133,24 +140,14 @@ public class dungeonGame {
       }
       
       
-      
-
-
-
-
-      
-      
-    
-       
-      
-       System.out.println("_____________________________________");
+      System.out.println("_____________________________________");
        System.out.println("You have defeated the " + enemy );
        System.out.println("You have " + maxHealth + " HP left");
        System.out.println("_____________________________________\n");
        System.out.println("How do you wish to proceed?");
        System.out.println("1. Continue Fighting");
        System.out.println("2. Leave The Dungeon");
-
+       //Using scanner class again to get user input
        String decisions = input.nextLine();
        System.out.println("\n");
 
@@ -160,23 +157,22 @@ public class dungeonGame {
        }
        else if(decisions.equals("2"))
        {
+       //breaks loop and ends game
        System.out.println("having conquered the enemy you successfully leave the dungeon");
        break;
        }
 
 
       }
-      if(maxHealth < 1)
-      {
-        break;
-      }
-    } 
+      //final message to player once they finish or retreat
+     System.out.println("THANK YOU FOR PLAYING DUNGEON ADVENTURE");
+     
     
   
 
   
     
-    System.out.println("THANK YOU FOR PLAYING DUNGEON ADVENTURE");
+    
 
   }
 }
