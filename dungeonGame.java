@@ -9,8 +9,10 @@ public class dungeonGame {
     Scanner input = new Scanner(System.in);
     Random rand = new Random();
 
-    // enemy
+    
+    //String Array that holds all the names of the enemies so we they randomly can be randomly called each time we go into a fight
     String[] enemies = { "Ghoul", "Mind Flayer", "Goblin", "Ghost"};
+    // enemy
     int enemyMaxHealth = 100;
     int enemyMaxDamageDealt = 40;
     int enemyRegeneration = 15;
@@ -30,6 +32,7 @@ public class dungeonGame {
     for(int i = 3; i > 0; i--)
       {
         System.out.println(i);
+        //2000 milliseconds or 2 second countdown too make it more exaggerated
         Thread.sleep(2000);  
       }
 
@@ -51,6 +54,7 @@ public class dungeonGame {
     
     
     //labeled the loop to iterate back to it later
+    
     GAME: while (working) {
       
 
@@ -107,6 +111,7 @@ public class dungeonGame {
         {
           if(maxHealth >=1 && maxHealth <=70)
           {
+
            int enemyHealthBack = rand.nextInt(enemyRegeneration);
            int magicAttack = rand.nextInt(magicDamage);
            int playerRegeneration = rand.nextInt(maxRegeneration);
@@ -150,7 +155,7 @@ public class dungeonGame {
        //Using scanner class again to get user input
        String decisions = input.nextLine();
        System.out.println("\n");
-
+       
        if(decisions.equals("1"))
        {
         System.out.println("Brave choice. You continue on in your adventure\n \n \n ");
@@ -160,6 +165,7 @@ public class dungeonGame {
        //breaks loop and ends game
        System.out.println("having conquered the enemy you successfully leave the dungeon");
        break;
+       
        }
 
 
